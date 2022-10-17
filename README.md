@@ -42,12 +42,12 @@ Many applications could be positively influenced by these results. Programs in a
 
 We performed shape interpolation between models from a test dataset and we obtained their mapping to the opposite latent space. An interpolation is given by the following expression:
 
-$$k * v<sub>α</sub> + (1−k) * v<sub>β</sub>$$, where
+$$k * v_α + (1−k) * v_β$$
 
-$k ∈ [0, 1]$, $v<sub>α</sub>$ is the latent representation of an input shape of class α and $v<sub>β</sub>$ is the
+where $k ∈ [0, 1]$, $v_α$ is the latent representation of an input shape of class α and $v<sub>β</sub>$ is the
 latent representation of an input shape of class β.
 
-<img width="651" alt="Schermata 2022-10-17 alle 13 02 34" src="https://user-images.githubusercontent.com/34343511/196161494-2b0c6ea1-28a2-4ce7-92be-7d5e4a496683.png">
+<p align="center"<img width="651" alt="Schermata 2022-10-17 alle 13 02 34" src="https://user-images.githubusercontent.com/34343511/196161494-2b0c6ea1-28a2-4ce7-92be-7d5e4a496683.png"></p>
 
 We have observed from experiments that a classic AE does not permit to move properly from one shape to another in a space with large variations: the interpolated results are unrealistic and uninteresting.
 In our model space it is possible instead to move in an Euclidean way: we have an expressive latent space that may find application in a generative model. From a fairness point of view, the expressiveness would facilitate the creation of new types of data and thus it would favor a more inclusive representation within the human body generation methods. For example, a new advance in this sense could lead to an even more widespread use of generative methods as integration tools into 3D modeling softwares.

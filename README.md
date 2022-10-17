@@ -69,7 +69,8 @@ We can see that, in the space visualizations of our model, the distribution is r
 
 Here the plot of latent space for the classic AE, where we are comparing the display of latent space for α shapes and that for β shapes.
 
-<p align="center"><img width="434" alt="Schermata 2022-10-17 alle 13 35 57" src="https://user-images.githubusercontent.com/34343511/196168392-6e1495c9-2c45-429b-885c-8f94ff4fbfe5.png"></p>
+<p align="center"><img width="499" alt="Schermata 2022-10-17 alle 13 43 42" src="https://user-images.githubusercontent.com/34343511/196168797-f7a08d58-f1db-4ec7-b5ef-d9480013cc14.png">
+</p>
 
 At the right-most part of the plot, almost half the data from class β are far away from class α data: the network makes a more marked division between the two classes of shapes, shapes of different classes are more different between each other.
 

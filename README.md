@@ -1,6 +1,6 @@
 # Autoencoder for Fairness
 
-The Jupyter Notebook ```autoencoder_mpl.ipynb``` contains the implementation of an <b>Autoencoder Neural Network</b> for the creation of latent spaces representing two types of human body class: <b>class α</b> shapes that possess the most common appearance for the human body and <b>class β</b> shapes, bodies with a limb amputation (e.g. leg or arm).
+The Jupyter Notebook ```autoencoder_mpl.ipynb``` contains the implementation of an <i>Autoencoder Neural Network</i> for the creation of latent spaces representing two types of human body class: <b>class α</b> shapes that possess the most common appearance for the human body and <b>class β</b> shapes, bodies with a limb amputation (e.g. leg or arm).
 The network was trained on a dataset containing 1000 instances of both classes (included in ```dataset``` directory) and the trained model was saved as ```ae_model.pt```.
 
 The model architecture comprehends two main AE mirroring one another and two MLP connecting the latent spaces of each AE. AE<sub>α</sub> has an Encoder E<sub>α</sub> with two linear layers followed by tanh activation and a Decoder D<sub>α</sub> with one linear layer followed also by tanh activation. Dimensions are n × 3 → 512 → 256 → 256 → n × 3. We have the same structure for AE<sub>β</sub>, with an Encoder E<sub>β</sub> and a Decoder D<sub>β</sub>. The MLP N<sub>βα</sub> is a network mapping latent space v<sub>β</sub> from AE<sub>β</sub> to latent space v<sub>α</sub> in AE<sub>α</sub>. It has five linear layers followed by SELU activation and a batch normalization layer. Dimensions are f → 64 → 128 → 256 → 128 → 64 → f. MLP N<sub>αβ</sub> similarly has the same structure.
@@ -42,7 +42,7 @@ Many applications could be positively influenced by these results. Programs in a
 
 We performed shape interpolation between models from a test dataset and we obtained their mapping to the opposite latent space. An interpolation is given by the following expression:
 
-k*v<sub>α</sub> +(1−k)*v<sub>β</sub>, where
+$$k*v<sub>α</sub> +(1−k)*v<sub>β</sub>$$, where
 
 k ∈ [0, 1], v<sub>α</sub> is the latent representation of an input shape of class α and v<sub>β</sub> is the
 latent representation of an input shape of class β.

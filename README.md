@@ -25,7 +25,7 @@ In particular we focused on the body modeling aspect of Virtual Humans and its c
 We chose [<b>SMPL</b>](https://smpl.is.tue.mpg.de) as our statistical model.
 
 We generated a 3D dataset with two types of classes: α shapes have the most common appearance for a human body; β shapes reproduce the appearance of a person that no longer possesses a limb. It was important for having a realistic appearance that we did not have a clean cut near the point of amputation, but instead a "smooth" deformation.
-Specifically we applied a <b><i>Conformalized Mean Curvature Flow</i></b> and we took [<b>mkazhdan code</b>](https://github.com/mkazhdan/ConformalizedMCF) as a reference, so convergence problems like extreme expansion of the shape were avoided. For further details on this part [go here](https://github.com/luismautone/human-body-mcf).
+Specifically we applied a <b><i>Conformalized Mean Curvature Flow</i></b> and we took [<b>mkazhdan code</b>](https://github.com/mkazhdan/ConformalizedMCF) as a reference, so convergence problems like extreme expansion of the shape were avoided. For further details on this part go [here](https://github.com/luismautone/human-body-mcf).
 
 <p align="center"><img width="1141" alt="Schermata 2022-10-17 alle 12 06 27" src="https://user-images.githubusercontent.com/34343511/196150981-12eeeb9d-7508-406e-a1d1-67a85d75d3ab.png"></p>
 <p align="center"><img width="1283" alt="Schermata 2022-10-17 alle 12 06 33" src="https://user-images.githubusercontent.com/34343511/196151017-009fda55-5920-480d-8680-ce8027895ecc.png"></p>

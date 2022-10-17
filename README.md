@@ -1,15 +1,18 @@
 # Autoencoder for Fairness
 
 The Jupyter Notebook ```autoencoder_mpl.ipynb``` contains the implementation of an <i>Autoencoder Neural Network</i> for the creation of latent spaces representing two types of human body class: <b>class α</b> shapes that possess the most common appearance for the human body and <b>class β</b> shapes, bodies with a limb amputation (e.g. leg or arm).
+
+The described network is part of my CS Master's thesis at Sapienza University titled <i>Fairness in Geometry Processing</i>.
+
+## Network
+
 The network was trained on a dataset containing 1000 instances of both classes included in ```dataset``` directory.
 
 The model architecture comprehends two main AE mirroring one another and two MLP connecting the latent spaces of each AE. AE<sub>α</sub> has an Encoder E<sub>α</sub> with two linear layers followed by tanh activation and a Decoder D<sub>α</sub> with one linear layer followed also by tanh activation. Dimensions are n × 3 → 512 → 256 → 256 → n × 3. We have the same structure for AE<sub>β</sub>, with an Encoder E<sub>β</sub> and a Decoder D<sub>β</sub>. The MLP N<sub>βα</sub> is a network mapping latent space v<sub>β</sub> from AE<sub>β</sub> to latent space v<sub>α</sub> in AE<sub>α</sub>. It has five linear layers followed by SELU activation and a batch normalization layer. Dimensions are f → 64 → 128 → 256 → 128 → 64 → f. MLP N<sub>αβ</sub> similarly has the same structure.
 
 <p align="center"><img width="736" alt="194407227-d4567984-c0dc-4a5a-93c0-883c44dd535a" src="https://user-images.githubusercontent.com/34343511/196158992-71e6f8a0-caee-484f-b4ac-602cefdf2c48.png"></p>
 
-The described network is part of my CS Master's thesis at Sapienza University titled <i>Fairness in Geometry Processing</i>.
-
-## Thesis project
+## Thesis description
 
 The thesis context is <b>Fair Machine Learning</b>, the study of correcting bias respect to sensitive variables in automated decision processes based on ML models.
 Generally current human body model generation methods create human bodies compliant with the standard person capabilities and we have very little material on bodies considered a deviation from the norm. The objective is to work on geometric methods that favor a representation of all human bodies in their diversity.

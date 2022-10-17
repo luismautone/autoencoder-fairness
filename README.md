@@ -41,6 +41,9 @@ Our model, respect to a classic AE, reconstructs shapes with accuracy and realis
 
 The model architecture comprehends two main AEs mirroring one another and two Multi-Layer Perceptrons (MLP) connecting the latent spaces of each AE. AE<sub>α</sub> has an Encoder E<sub>α</sub> with two linear layers followed by tanh activation and a Decoder D<sub>α</sub> with one linear layer followed also by tanh activation. Dimensions are n × 3 → 512 → 256 → 256 → n × 3. We have the same structure for AE<sub>β</sub>, with an Encoder E<sub>β</sub> and a Decoder D<sub>β</sub>. The MLP N<sub>βα</sub> is a network mapping latent space v<sub>β</sub> from AE<sub>β</sub> to latent space v<sub>α</sub> in AE<sub>α</sub>. It has five linear layers followed by SELU activation and a batch normalization layer. Dimensions are f → 64 → 128 → 256 → 128 → 64 → f. MLP N<sub>αβ</sub> similarly has the same structure.
 
+The training loss is the following:
+<img width="724" alt="Schermata 2022-10-17 alle 22 06 04" src="https://user-images.githubusercontent.com/34343511/196272784-7b248bf8-ef5e-4394-9ae4-b471779ed874.png">
+
 ### MSE Evaluation
 
 <p align="center"><img width="745" alt="Schermata 2022-10-17 alle 12 56 49" src="https://user-images.githubusercontent.com/34343511/196160500-12507e79-ee18-469f-a182-7c4db7161c04.png"></p>

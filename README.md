@@ -9,6 +9,13 @@ The described network is part of my CS Master's thesis at Sapienza University ti
 The notebook needs to load the ```partial_shapes_matrix.npy``` and ```total_shapes_matrix.npy``` files included in ```dataset``` directory.
 For a faster training of the network run the notebook in [Colab](https://colab.research.google.com) and activate GPU hardware acceleration.
 
+## Python dependencies
+
+<ul>
+  <li>PyTorch</li>
+  <li>Numpy</li>
+</ul>
+
 ## Thesis description
 
 The thesis context is <b>Fair Machine Learning</b>, the study of correcting bias respect to sensitive variables in automated decision processes based on ML models.
@@ -23,16 +30,16 @@ Specifically we applied a <b><i>Conformalized Mean Curvature Flow</i></b> and we
 <p align="center"><img width="1141" alt="Schermata 2022-10-17 alle 12 06 27" src="https://user-images.githubusercontent.com/34343511/196150981-12eeeb9d-7508-406e-a1d1-67a85d75d3ab.png"></p>
 <p align="center"><img width="1283" alt="Schermata 2022-10-17 alle 12 06 33" src="https://user-images.githubusercontent.com/34343511/196151017-009fda55-5920-480d-8680-ce8027895ecc.png"></p>
 
-Next we wanted to train an Autoencoder Neural Network on the created dataset in order to obtain a latent space containing the representation for the classes.
+Next we wanted to train an Autoencoder (AE) Neural Network on the created dataset in order to obtain a latent space containing the representation for the classes.
 Firstly we performed experiments on a classic AE which had the purpose to create a single latent space for both type of shapes but this approach presented problems in the shape reconstruction, as highlighted above.
 
 Our model, respect to a classic AE, reconstructs shapes with accuracy and realism: the decoded shape is very much similar to the original input; moreover the model gives coeherent results for the mapping of shapes, since the reconstructed shapes even after this operation are pretty similar in appearance to the correspondent input shape. We arrive to this solution after two separate training on a dataset containing 1000 instances for both classes.
 
-## Network
+## Our model
 
 <p align="center"><img width="736" alt="194407227-d4567984-c0dc-4a5a-93c0-883c44dd535a" src="https://user-images.githubusercontent.com/34343511/196158992-71e6f8a0-caee-484f-b4ac-602cefdf2c48.png"></p>
 
-The model architecture comprehends two main AE mirroring one another and two MLP connecting the latent spaces of each AE. AE<sub>α</sub> has an Encoder E<sub>α</sub> with two linear layers followed by tanh activation and a Decoder D<sub>α</sub> with one linear layer followed also by tanh activation. Dimensions are n × 3 → 512 → 256 → 256 → n × 3. We have the same structure for AE<sub>β</sub>, with an Encoder E<sub>β</sub> and a Decoder D<sub>β</sub>. The MLP N<sub>βα</sub> is a network mapping latent space v<sub>β</sub> from AE<sub>β</sub> to latent space v<sub>α</sub> in AE<sub>α</sub>. It has five linear layers followed by SELU activation and a batch normalization layer. Dimensions are f → 64 → 128 → 256 → 128 → 64 → f. MLP N<sub>αβ</sub> similarly has the same structure.
+The model architecture comprehends two main AEs mirroring one another and two Multi-Layer Perceptrons (MLP) connecting the latent spaces of each AE. AE<sub>α</sub> has an Encoder E<sub>α</sub> with two linear layers followed by tanh activation and a Decoder D<sub>α</sub> with one linear layer followed also by tanh activation. Dimensions are n × 3 → 512 → 256 → 256 → n × 3. We have the same structure for AE<sub>β</sub>, with an Encoder E<sub>β</sub> and a Decoder D<sub>β</sub>. The MLP N<sub>βα</sub> is a network mapping latent space v<sub>β</sub> from AE<sub>β</sub> to latent space v<sub>α</sub> in AE<sub>α</sub>. It has five linear layers followed by SELU activation and a batch normalization layer. Dimensions are f → 64 → 128 → 256 → 128 → 64 → f. MLP N<sub>αβ</sub> similarly has the same structure.
 
 ### MSE Evaluation
 

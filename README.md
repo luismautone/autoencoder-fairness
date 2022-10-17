@@ -35,7 +35,7 @@ Firstly we performed experiments on a classic AE which had the purpose to create
 
 Our model, respect to a classic AE, reconstructs shapes with accuracy and realism: the decoded shape is very much similar to the original input; moreover the model gives coeherent results for the mapping of shapes, since the reconstructed shapes even after this operation are pretty similar in appearance to the correspondent input shape. We arrive to this solution after two separate training on a dataset containing 1000 instances for both classes.
 
-## Our model
+### Our model
 
 <p align="center"><img width="736" alt="194407227-d4567984-c0dc-4a5a-93c0-883c44dd535a" src="https://user-images.githubusercontent.com/34343511/196158992-71e6f8a0-caee-484f-b4ac-602cefdf2c48.png"></p>
 

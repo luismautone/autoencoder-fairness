@@ -65,7 +65,7 @@ We performed shape interpolation between models from a test dataset and we obtai
 
 $$k * v_α + (1−k) * v_β$$
 
-where $k ∈ [0, 1]$, $v_α$ is the latent representation of an input shape of class α and $v<sub>β</sub>$ is the
+where $k ∈ [0, 1]$, $v_α$ is the latent representation of an input shape of class α and $v_β$ is the
 latent representation of an input shape of class β.
 
 <p align="center"><img width="651" alt="Schermata 2022-10-17 alle 13 02 34" src="https://user-images.githubusercontent.com/34343511/196161494-2b0c6ea1-28a2-4ce7-92be-7d5e4a496683.png"></p>
